@@ -47,7 +47,7 @@ import static junit.framework.TestCase.fail;
 public class KVEngineTest {
 
     private final String ENGINE = "vsmap";
-    private final String CONFIG = "{\"path\":\"/dev/shm\"}";
+    private final String CONFIG = "{\"path\":\"/dev/shm\", \"size\":1073741824}";
 
     @Test
     public void blackholeTest() {
@@ -237,7 +237,7 @@ public class KVEngineTest {
             Assert.fail();
         } catch (KVEngineException kve) {
             expect(kve.getKey()).toBeNull();
-            expect(kve.getMessage()).toEqual("JSON does not contain a valid path string");
+            expect(kve.getMessage()).toEqual("Failed to open pmemkv"); // XXX
         } catch (Exception e) {
             Assert.fail();
         }
@@ -252,7 +252,7 @@ public class KVEngineTest {
             Assert.fail();
         } catch (KVEngineException kve) {
             expect(kve.getKey()).toBeNull();
-            expect(kve.getMessage()).toEqual("JSON does not contain a valid path string");
+            expect(kve.getMessage()).toEqual("JSON parsing error"); // XXX
         } catch (Exception e) {
             Assert.fail();
         }
@@ -267,7 +267,7 @@ public class KVEngineTest {
             Assert.fail();
         } catch (KVEngineException kve) {
             expect(kve.getKey()).toBeNull();
-            expect(kve.getMessage()).toEqual("Unknown engine name");
+            expect(kve.getMessage()).toEqual("Failed to open pmemkv"); // XXX
         } catch (Exception e) {
             Assert.fail();
         }
@@ -282,7 +282,7 @@ public class KVEngineTest {
             Assert.fail();
         } catch (KVEngineException kve) {
             expect(kve.getKey()).toBeNull();
-            expect(kve.getMessage()).toEqual("Config path is not an existing directory");
+            expect(kve.getMessage()).toEqual("Failed to open pmemkv"); // XXX
         } catch (Exception e) {
             Assert.fail();
         }
@@ -297,7 +297,7 @@ public class KVEngineTest {
             Assert.fail();
         } catch (KVEngineException kve) {
             expect(kve.getKey()).toBeNull();
-            expect(kve.getMessage()).toEqual("JSON does not contain a valid path string");
+            expect(kve.getMessage()).toEqual("JSON parsing error"); // XXX
         } catch (Exception e) {
             Assert.fail();
         }
