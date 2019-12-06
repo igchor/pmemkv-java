@@ -39,6 +39,11 @@ PREFIX=/usr
 
 set -e
 
+echo "###########################################################"
+echo "### locale "
+echo "###########################################################"
+locale
+
 # install pmemkv
 pmemkv_version=$1
 cd /opt/pmemkv-$pmemkv_version/
