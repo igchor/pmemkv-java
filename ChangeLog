@@ -1,6 +1,6 @@
 Tue May 25 2021 Igor Chorążewicz <igor.chorazewicz@intel.com>
 
-	* Version 1.1
+	* Version 1.1.0
 
 	Improvements:
 	- improve performance over 2 times by caching direct buffers and
